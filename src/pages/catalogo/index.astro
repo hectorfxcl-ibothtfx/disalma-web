@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CatalogIsland from '../../components/catalog/CatalogIsland';
+import { products } from '../../data/products';
+import { categories } from '../../data/categories';
+
+const catalogJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Catálogo de Útiles de Aseo y Limpieza | Disalma.cl',
+  description: 'Catálogo completo de detergentes en bidón 5L, lavavajillas, desengrasantes industriales y limpiadores con precios de liquidadora.',
+  url: 'https://disalma.cl/catalogo',
+  numberOfItems: products.length,
+  itemListElement: products.map((prod, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    url: `https://disalma.cl/productos/${prod.slug}`,
+    name: prod.title
+  }))
+};
+---
+
+<Layout
+  title="Catálogo de Productos de Aseo y Limpieza | Disalma.cl"
+  description="Explora nuestro catálogo con precios de distribuidora en bidones de 5L de detergente, lavaloza, cloro gel, desengrasantes y artículos de aseo en Santiago."
+  jsonLd={catalogJsonLd}
+>
+
+  <!-- Hero del catálogo -->
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="badge badge-yellow" style="margin-bottom:.75rem;">
+        🛒 Checkout directo por WhatsApp
+      </span>
+      <h1 class="txt-hero" style="color:white;margin-bottom:.5rem;">
+        Catálogo de Útiles de Aseo
+      </h1>
+      <p class="txt-lead" style="color:rgba(255,255,255,.65);max-width:560px;">
+        Agrega productos al carrito, indica tu dirección y envía el pedido por WhatsApp en segundos.
+      </p>
+    </div>
+  </div>
+
+  <!-- Catálogo interactivo (React Island) -->
+  <div class="wrap" style="padding-block:2rem;">
+    <CatalogIsland
+      client:load
+      initialProducts={products}
+      categories={categories}
+      initialCategorySlug="todos"
+    />
+  </div>
+
+</Layout>

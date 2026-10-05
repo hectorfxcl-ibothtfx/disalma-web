@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { businessInfo } from '../data/business';
+
+const nosotrosJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'Sobre Nosotros | Liquidadora Alma Janette (Disalma.cl)',
+  description: 'Conoce la historia, misión y valores de Liquidadora Alma Janette.',
+  url: 'https://disalma.cl/nosotros'
+};
+---
+
+<Layout
+  title="Sobre Nosotros • Nuestra Historia y Valores | Disalma.cl"
+  description="Conoce la historia de Liquidadora Alma Janette: dedicados a ofrecer útiles de aseo de alto rendimiento con precios justos de distribuidora para familias y empresas."
+  jsonLd={nosotrosJsonLd}
+>
+
+  <!-- Hero -->
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="badge badge-yellow" style="margin-bottom:.75rem;">Identidad y Cercanía</span>
+      <h1 class="txt-hero" style="color:white;margin-bottom:.5rem;">
+        Nuestra Historia
+      </h1>
+      <p class="txt-lead" style="color:rgba(255,255,255,.65);max-width:560px;">
+        Nacimos con un propósito claro: democratizar el acceso a productos de limpieza concentrados a precios justos para cada hogar y pyme de Chile.
+      </p>
+    </div>
+  </div>
+
+  <div class="section section-dark">
+    <div class="wrap">
+      <!-- Stats -->
+      <div class="about-stats" style="max-width:480px;margin:0 auto 2rem;">
+        <div class="stat-box">
+          <strong>+5.000</strong>
+          <span>Hogares abastecidos</span>
+        </div>
+        <div class="stat-box">
+          <strong>45%</strong>
+          <span>Ahorro promedio</span>
+        </div>
+        <div class="stat-box">
+          <strong>100%</strong>
+          <span>Atención WhatsApp</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section-alt" style="border-bottom:1px solid var(--border);">
+    <div class="wrap">
+
+      <!-- About layout -->
+      <div class="about-layout">
+        <div style="color:var(--mid);line-height:1.75;font-size:.9375rem;">
+          <h2 class="txt-h2" style="margin-bottom:1.25rem;color:var(--black);">
+            El equilibrio perfecto entre<br/>
+            <span style="color:var(--yellow-dark);">Ahorro Real y Calidad Garantizada</span>
+          </h2>
+
+          <p style="margin-bottom:1rem;">
+            En los canales de venta tradicionales, una gran parte del precio que pagas por un detergente corresponde a costosos envases individuales, campañas publicitarias masivas y márgenes abusivos de intermediarios.
+          </p>
+
+          <p style="margin-bottom:1.25rem;">
+            <strong style="color:var(--black);">Liquidadora Alma Janette (Disalma.cl)</strong> nació como una distribuidora familiar para romper esa lógica. Nos enfocamos en formatos de gran volumen (bidones de 5 Litros, recargas concentradas) para que pagues exclusivamente por el producto activo, no por el envoltorio.
+          </p>
+
+          <div style="background:var(--yellow-light);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;border:1px solid var(--yellow-border);">
+            <p style="font-weight:800;color:var(--black);margin-bottom:.5rem;">⚖️ El significado de nuestra balanza:</p>
+            <p style="font-size:.875rem;color:#92400E;">
+              Nuestra balanza equilibra los productos de limpieza con el bolsillo de nuestros clientes. Significa <strong>peso exacto, fórmula activa sin rebajar y un trato transparente</strong> en cada venta.
+            </p>
+          </div>
+        </div>
+
+        <!-- Logo card -->
+        <div style="background:var(--bg);border-radius:var(--radius-2xl);padding:2rem;border:1px solid var(--border);text-align:center;">
+          <div style="width:80px;height:80px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:2.25rem;box-shadow:var(--shadow-md);">
+            ⚖️
+          </div>
+          <h3 style="font-size:1.125rem;font-weight:900;color:var(--black);margin-bottom:.25rem;">
+            Liquidadora Alma Janette
+          </h3>
+          <p style="font-size:.6875rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--light);">
+            Distribuidora Mayorista y Minorista
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Misión, Visión, Valores -->
+  <section class="section" style="border-bottom:1px solid var(--border);">
+    <div class="wrap">
+
+      <div class="section-header">
+        <p class="eyebrow">Nuestro ADN</p>
+        <h2 class="txt-h2">Misión, Visión y Valores</h2>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-card__icon" style="background:var(--yellow-light);">🎯</div>
+          <div>
+            <h3>Nuestra Misión</h3>
+            <p>Proveer suministros de aseo de alto estándar a precios de liquidadora, entregando una experiencia de compra ágil, cercana y personalizada a través de WhatsApp.</p>
+          </div>
+        </div>
+
+        <div class="value-card">
+          <div class="value-card__icon" style="background:#FEE2E2;">👁️</div>
+          <div>
+            <h3>Nuestra Visión</h3>
+            <p>Ser la distribuidora de aseo preferida de la Región Metropolitana, reconocida por la honestidad en sus precios, la potencia de sus fórmulas y el apoyo al comercio local.</p>
+          </div>
+        </div>
+
+        <div class="value-card" style="grid-column: 1 / -1;">
+          <div class="value-card__icon" style="background:#DCFCE7;">🤝</div>
+          <div>
+            <h3>Nuestros Valores</h3>
+            <ul style="list-style:none;margin-top:.5rem;display:flex;flex-direction:column;gap:.5rem;font-size:.875rem;color:var(--mid);">
+              <li><strong style="color:var(--dark);">Honestidad:</strong> Precios reales sin letra chica.</li>
+              <li><strong style="color:var(--dark);">Compromiso:</strong> Cumplimiento riguroso de entregas.</li>
+              <li><strong style="color:var(--dark);">Cercanía:</strong> Trato amable de persona a persona por WhatsApp.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="background:var(--yellow);">
+    <div class="wrap">
+      <div class="cta-banner">
+        <h2 class="txt-h2">¿Pedido corporativo o de condominio?</h2>
+        <p style="color:rgba(255,255,255,.7);margin-bottom:1.5rem;">
+          Atendemos cotizaciones para condominios, colegios, lavanderías y locales comerciales.
+        </p>
+        <a
+          href={`https://wa.me/${businessInfo.whatsappNumber}?text=${encodeURIComponent('Hola Disalma, quiero realizar una consulta mayorista:')}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-whatsapp btn-lg"
+          style="display:inline-flex;"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          WhatsApp {businessInfo.phoneDisplay}
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

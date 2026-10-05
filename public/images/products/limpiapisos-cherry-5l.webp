@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="bottleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F43F5E"/>
+      <stop offset="50%" stop-color="#BE123C"/>
+      <stop offset="100%" stop-color="#F43F5E"/>
+    </linearGradient>
+    <linearGradient id="capGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#991B1B"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0F172A" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background base -->
+  <rect width="400" height="400" rx="24" fill="url(#bg)"/>
+
+  <!-- Bottle Container -->
+  <g filter="url(#shadow)">
+    <!-- Cap -->
+    <rect x="175" y="45" width="50" height="24" rx="4" fill="url(#capGrad)"/>
+    <rect x="180" y="69" width="40" height="15" rx="2" fill="#E2E8F0"/>
+
+    <!-- Handle -->
+    <path d="M140 100 C110 100 100 130 100 160 C100 190 115 210 135 215" fill="none" stroke="#F43F5E" stroke-width="22" stroke-linecap="round"/>
+
+    <!-- Jug Body -->
+    <path d="M145 84 L255 84 C275 84 290 100 290 120 L290 310 C290 330 275 345 255 345 L145 345 C125 345 110 330 110 310 L110 120 C110 100 125 84 145 84 Z" fill="url(#bottleGrad)"/>
+
+    <!-- Handle Hole -->
+    <rect x="135" y="125" width="22" height="70" rx="11" fill="url(#bg)"/>
+
+    <!-- Label -->
+    <rect x="135" y="150" width="135" height="145" rx="10" fill="#FFFFFF"/>
+    <rect x="142" y="156" width="121" height="6" rx="3" fill="#F59E0B"/>
+    
+    <!-- Label Brand -->
+    <text x="202" y="178" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="11" font-weight="900" fill="#0F172A" text-anchor="middle" letter-spacing="1">DISALMA</text>
+    <text x="202" y="190" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="7" font-weight="700" fill="#DC2626" text-anchor="middle">LIQUIDADORA</text>
+    <line x1="150" y1="196" x2="255" y2="196" stroke="#E2E8F0" stroke-width="1.5"/>
+
+    <!-- Product name on label -->
+    <foreignObject x="142" y="202" width="121" height="60">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: sans-serif; font-size: 10px; font-weight: 800; color: #1E293B; text-align: center; line-height: 1.2;">
+        Limpiapisos Cherry
+      </div>
+    </foreignObject>
+
+    <!-- Format Badge -->
+    <rect x="160" y="266" width="85" height="18" rx="9" fill="#0F172A"/>
+    <text x="202" y="278" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="9" font-weight="800" fill="#FBBF24" text-anchor="middle">5 LITROS</text>
+  </g>
+
+  <!-- Sparkle -->
+  <path d="M310 90 L314 100 L324 104 L314 108 L310 118 L306 108 L296 104 L306 100 Z" fill="#F59E0B"/>
+  <path d="M90 280 L92 286 L98 288 L92 290 L90 296 L88 290 L82 288 L88 286 Z" fill="#DC2626"/>
+</svg>

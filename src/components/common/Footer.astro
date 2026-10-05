@@ -1,0 +1,110 @@
+---
+import Logo from './Logo.astro';
+import { businessInfo } from '../../data/business';
+import { categories } from '../../data/categories';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+
+    <div class="footer-grid">
+
+      <!-- Marca -->
+      <div>
+        <Logo variant="light" />
+        <p style="font-size:.875rem;line-height:1.7;color:rgba(255,255,255,.55);margin-top:1rem;margin-bottom:1rem;">
+          <strong style="color:rgba(255,255,255,.85);">Liquidadora Alma Janette (Disalma.cl)</strong> — tu distribuidora de útiles de aseo y limpieza para el hogar, restaurantes y condominios. Bidones de 5L a precio real de distribuidora.
+        </p>
+        <span style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.4rem .875rem;font-size:.75rem;font-weight:700;color:var(--yellow);">
+          ⭐ 4.9/5 en satisfacción de clientes
+        </span>
+      </div>
+
+      <!-- Categorías -->
+      <div class="footer-col">
+        <h4>Categorías de Aseo</h4>
+        <ul>
+          {categories.map((cat) => (
+            <li>
+              <a href={`/categorias/${cat.slug}`}>
+                {cat.name}
+                <span style="color:rgba(255,255,255,.25);font-size:.6875rem;margin-left:.35rem;">({cat.itemCount})</span>
+              </a>
+            </li>
+          ))}
+          <li>
+            <a href="/catalogo" style="color:var(--yellow);font-weight:800;">
+              Ver catálogo completo →
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Info -->
+      <div class="footer-col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="/nosotros">Historia de Alma Janette</a></li>
+          <li><a href="/contacto">Puntos de Retiro y Despacho</a></li>
+          <li><a href="/catalogo">Lista de Precios</a></li>
+          <li>
+            <a
+              href={`https://wa.me/${businessInfo.whatsappNumber}?text=${encodeURIComponent('Hola Disalma! Quiero cotizar para mi empresa.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style="color:var(--whatsapp);font-weight:800;"
+            >
+              Cotización Mayorista →
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contacto -->
+      <div class="footer-col">
+        <h4>Contacto Directo</h4>
+        <div style="display:flex;flex-direction:column;gap:.875rem;font-size:.8125rem;">
+          <div>
+            <span style="display:block;font-size:.625rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.3);margin-bottom:.25rem;">WhatsApp</span>
+            <a
+              href={`https://wa.me/${businessInfo.whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style="color:var(--whatsapp);font-weight:800;font-size:1rem;"
+            >
+              {businessInfo.phoneDisplay}
+            </a>
+          </div>
+          <div>
+            <span style="display:block;font-size:.625rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.3);margin-bottom:.25rem;">Email</span>
+            <a href={`mailto:${businessInfo.email}`} style="color:rgba(255,255,255,.6);">{businessInfo.email}</a>
+          </div>
+          <div>
+            <span style="display:block;font-size:.625rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.3);margin-bottom:.25rem;">Local</span>
+            <p style="color:rgba(255,255,255,.6);line-height:1.5;">{businessInfo.address}<br/>{businessInfo.city}, Chile</p>
+          </div>
+          <div>
+            <span style="display:block;font-size:.625rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:rgba(255,255,255,.3);margin-bottom:.25rem;">Horario</span>
+            <p style="color:rgba(255,255,255,.6);line-height:1.5;">{businessInfo.hoursWeekdays}<br/>{businessInfo.hoursSaturday}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p>© {currentYear} {businessInfo.legalName} · {businessInfo.domain} · RUT {businessInfo.rut}</p>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;">
+        <span>Precios en CLP</span>
+        <span style="color:rgba(255,255,255,.2);">•</span>
+        <span>Despacho Santiago</span>
+        <span style="color:rgba(255,255,255,.2);">•</span>
+        <span>Pedido por WhatsApp</span>
+      </div>
+    </div>
+
+  </div>
+</footer>

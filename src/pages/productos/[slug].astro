@@ -1,0 +1,279 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AddToCartButton from '../../components/product/AddToCartButton';
+import { products, getRelatedProducts } from '../../data/products';
+import { businessInfo } from '../../data/business';
+import { formatCLP, calculateDiscount } from '../../utils/formatters';
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product }
+  }));
+}
+
+const { product } = Astro.props;
+const relatedProducts = getRelatedProducts(product.id, product.categoryId, 4);
+const discount = calculateDiscount(product.price, product.regularPrice);
+const savingsAmount = product.regularPrice - product.price;
+
+// Schema.org Product structured data
+const productJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: product.title,
+  image: `https://disalma.cl${product.image}`,
+  description: product.description,
+  sku: product.sku,
+  brand: {
+    '@type': 'Brand',
+    name: 'Disalma'
+  },
+  offers: {
+    '@type': 'Offer',
+    url: `https://disalma.cl/productos/${product.slug}`,
+    priceCurrency: 'CLP',
+    price: product.price,
+    itemCondition: 'https://schema.org/NewCondition',
+    availability: product.inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+    seller: {
+      '@type': 'Organization',
+      name: businessInfo.legalName
+    }
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: product.rating,
+    reviewCount: product.reviewsCount
+  }
+};
+---
+
+<Layout
+  title={`${product.title} (${product.format}) | Disalma.cl`}
+  description={`${product.shortDescription} Precio Liquidadora: ${formatCLP(product.price)} (Ahorro ${formatCLP(savingsAmount)}). Despacho en Santiago o retiro en local.`}
+  jsonLd={productJsonLd}
+>
+  <div class="max-w-site py-8 space-y-12">
+    
+    {/* Breadcrumbs */}
+    <nav class="flex items-center gap-2 text-xs text-slate-500 overflow-x-auto pb-1">
+      <a href="/" class="hover:text-amber-600">Inicio</a>
+      <span>/</span>
+      <a href="/catalogo" class="hover:text-amber-600">Catálogo</a>
+      <span>/</span>
+      <a href={`/categorias/${product.categoryId}`} class="hover:text-amber-600">
+        {product.categoryName}
+      </a>
+      <span>/</span>
+      <span class="text-slate-900 font-bold truncate">{product.title}</span>
+    </nav>
+
+    {/* Main Product Showcase Grid */}
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/90 shadow-sm">
+      
+      {/* Left: Product Image Box */}
+      <div class="lg:col-span-5 space-y-4">
+        <div class="relative aspect-square bg-slate-50 rounded-2xl border border-slate-100 p-8 flex items-center justify-center overflow-hidden">
+          {discount > 0 && (
+            <span class="absolute top-4 left-4 bg-red-600 text-white text-xs font-black px-3 py-1 rounded-lg shadow-sm">
+              -{discount}% AHORRO LIQUIDADORA
+            </span>
+          )}
+
+          <span class="absolute top-4 right-4 bg-slate-900 text-amber-400 text-xs font-bold px-3 py-1 rounded-lg">
+            {product.format}
+          </span>
+
+          <img
+            src={product.image}
+            alt={product.title}
+            class="w-full h-full object-contain"
+          />
+        </div>
+
+        {/* Small trust badges below image */}
+        <div class="grid grid-cols-2 gap-3 text-center text-xs text-slate-600">
+          <div class="bg-slate-50 rounded-xl p-3 border border-slate-100">
+            <span class="block font-bold text-slate-900">📦 Formato Profesional</span>
+            <span class="text-[11px] text-slate-500">{product.format}</span>
+          </div>
+          <div class="bg-slate-50 rounded-xl p-3 border border-slate-100">
+            <span class="block font-bold text-emerald-700">✓ En Stock Inmediato</span>
+            <span class="text-[11px] text-slate-500">Despacho en Santiago</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Right: Product Details & Purchase Island */}
+      <div class="lg:col-span-7 space-y-6 flex flex-col justify-between">
+        
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <a
+              href={`/categorias/${product.categoryId}`}
+              class="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-3 py-1 rounded-full hover:bg-amber-200 transition-colors"
+            >
+              {product.categoryName}
+            </a>
+            <span class="text-xs text-slate-400">SKU: {product.sku}</span>
+          </div>
+
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 leading-tight">
+            {product.title}
+          </h1>
+
+          {/* Rating */}
+          <div class="flex items-center gap-2 text-xs">
+            <span class="text-amber-500 font-bold text-sm">★ {product.rating}</span>
+            <span class="text-slate-400">({product.reviewsCount} opiniones de clientes)</span>
+            <span class="text-slate-300">•</span>
+            <span class="text-emerald-700 font-bold">100% Garantizado</span>
+          </div>
+
+          {/* Price Box */}
+          <div class="bg-amber-50/60 border border-amber-200/80 rounded-2xl p-5 space-y-2">
+            <div class="flex items-baseline gap-3">
+              <span class="text-3xl sm:text-4xl font-black text-slate-950">
+                {formatCLP(product.price)}
+              </span>
+              <span class="text-base text-slate-400 line-through">
+                {formatCLP(product.regularPrice)}
+              </span>
+            </div>
+
+            {savingsAmount > 0 && (
+              <p class="text-xs text-emerald-800 font-bold flex items-center gap-1.5">
+                <span>🎉 Ahorras {formatCLP(savingsAmount)}</span>
+                <span class="text-slate-500 font-normal">respecto al valor referencial de retail.</span>
+              </p>
+            )}
+          </div>
+
+          {/* Description */}
+          <p class="text-sm text-slate-700 leading-relaxed">
+            {product.description}
+          </p>
+
+          {/* Benefits bullets */}
+          <div class="space-y-2 pt-2">
+            <h4 class="text-xs font-black uppercase tracking-wider text-slate-900">
+              Ventajas Principales:
+            </h4>
+            <ul class="space-y-1.5 text-xs text-slate-700">
+              {product.benefits.map((b) => (
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-600 font-black">✓</span>
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Usage Instructions if present */}
+          {product.usageInstructions && (
+            <div class="bg-slate-50 rounded-xl p-4 border border-slate-200/80 text-xs space-y-1">
+              <span class="font-bold text-slate-900 block">💡 Modo de Uso Sugerido:</span>
+              <p class="text-slate-600 leading-relaxed">{product.usageInstructions}</p>
+            </div>
+          )}
+        </div>
+
+        {/* Action: AddToCart Button (React Island with quantity picker) */}
+        <div class="pt-6 border-t border-slate-100 space-y-3">
+          <AddToCartButton
+            client:load
+            product={product}
+            variant="detail"
+          />
+
+          <div class="flex items-center justify-between text-xs pt-1">
+            <a
+              href={`https://wa.me/${businessInfo.whatsappNumber}?text=${encodeURIComponent(`Hola! Quisiera consultar sobre el producto: ${product.title} (${product.format})`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-emerald-700 hover:text-emerald-800 font-bold flex items-center gap-1.5"
+            >
+              <span>💬 Consultar dudas por WhatsApp</span>
+            </a>
+            <span class="text-slate-500">Sin compromiso</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    {/* Related Products */}
+    {relatedProducts.length > 0 && (
+      <section class="space-y-6 pt-6">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl sm:text-2xl font-black text-slate-900">
+            Productos Relacionados en {product.categoryName}
+          </h2>
+          <a
+            href={`/categorias/${product.categoryId}`}
+            class="text-xs font-bold text-amber-600 hover:text-amber-700"
+          >
+            Ver más en esta categoría →
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {relatedProducts.map((rel) => {
+            const relDiscount = calculateDiscount(rel.price, rel.regularPrice);
+            return (
+              <div class="group bg-white rounded-2xl border border-slate-200/90 overflow-hidden hover:border-amber-400 hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                <div>
+                  <a href={`/productos/${rel.slug}`} class="block relative aspect-square bg-slate-50 p-4">
+                    {relDiscount > 0 && (
+                      <span class="absolute top-3 left-3 z-10 bg-red-600 text-white text-[11px] font-black px-2 py-0.5 rounded">
+                        -{relDiscount}%
+                      </span>
+                    )}
+                    <span class="absolute top-3 right-3 z-10 bg-slate-900/80 text-white text-[10px] font-bold px-2 py-0.5 rounded">
+                      {rel.format}
+                    </span>
+                    <img
+                      src={rel.image}
+                      alt={rel.title}
+                      class="w-full h-full object-contain transform group-hover:scale-105 transition-transform"
+                      loading="lazy"
+                    />
+                  </a>
+
+                  <div class="p-4 space-y-1.5">
+                    <h3 class="font-extrabold text-slate-900 text-xs leading-snug line-clamp-2">
+                      <a href={`/productos/${rel.slug}`} class="hover:text-amber-600 transition-colors">
+                        {rel.title}
+                      </a>
+                    </h3>
+                  </div>
+                </div>
+
+                <div class="p-4 pt-0 space-y-2.5">
+                  <div class="flex items-baseline justify-between border-t border-slate-100 pt-2">
+                    <span class="text-xs text-slate-400 line-through">
+                      {formatCLP(rel.regularPrice)}
+                    </span>
+                    <span class="text-base font-black text-slate-900">
+                      {formatCLP(rel.price)}
+                    </span>
+                  </div>
+
+                  <a
+                    href={`/productos/${rel.slug}`}
+                    class="block text-center bg-slate-100 hover:bg-amber-500 hover:text-slate-950 text-slate-800 text-xs font-bold py-2 rounded-xl transition-colors"
+                  >
+                    Ver Detalle
+                  </a>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    )}
+
+  </div>
+</Layout>

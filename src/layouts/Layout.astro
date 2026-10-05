@@ -1,0 +1,112 @@
+---
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+import GlobalCartContainer from '../components/cart/GlobalCartContainer';
+import { businessInfo } from '../data/business';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article' | 'product';
+  jsonLd?: Record<string, any>;
+  currentPath?: string;
+}
+
+const {
+  title = 'Disalma.cl | Liquidadora de Útiles de Aseo y Limpieza al Por Mayor y Menor',
+  description = 'Liquidadora Alma Janette (Disalma.cl). Ahorra hasta 45% en detergentes 5L, suavizantes, desengrasantes, cloro y artículos de aseo para el hogar y empresas. Pedidos directos por WhatsApp.',
+  image = 'https://disalma.cl/images/og-disalma.webp',
+  type = 'website',
+  jsonLd,
+  currentPath = Astro.url.pathname
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://disalma.cl');
+
+// Base LocalBusiness Schema for SEO
+const defaultBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WholesaleStore',
+  name: businessInfo.legalName,
+  alternateName: 'Disalma',
+  url: 'https://disalma.cl',
+  logo: 'https://disalma.cl/images/logo.png',
+  image: image,
+  description: description,
+  telephone: businessInfo.phoneRaw,
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: businessInfo.address,
+    addressLocality: businessInfo.city,
+    addressRegion: businessInfo.region,
+    addressCountry: 'CL'
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '19:00'
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Saturday'],
+      opens: '09:30',
+      closes: '14:30'
+    }
+  ]
+};
+
+const structuredData = jsonLd ? jsonLd : defaultBusinessSchema;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    {/* Primary SEO Meta Tags */}
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+
+    {/* Open Graph / Facebook */}
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:site_name" content="Disalma.cl" />
+    <meta property="og:locale" content="es_CL" />
+
+    {/* Twitter */}
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+
+    {/* Structured Data JSON-LD */}
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body>
+    <Header currentPath={currentPath} />
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <Footer />
+
+    {/* React Cart Island: Slide-over Drawer, Floating Button, Checkout Modal */}
+    <GlobalCartContainer client:load />
+  </body>
+</html>

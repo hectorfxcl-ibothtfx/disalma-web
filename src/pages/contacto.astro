@@ -1,0 +1,270 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { businessInfo } from '../data/business';
+
+const contactoJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contacto y Ubicación | Disalma.cl',
+  description: 'Contáctate con Liquidadora Alma Janette. WhatsApp directo +56 9 5633 3906, dirección de local en San Miguel, Santiago y horarios de atención.',
+  url: 'https://disalma.cl/contacto'
+};
+---
+
+<Layout
+  title="Contacto y Ubicación • Liquidadora Alma Janette | Disalma.cl"
+  description="Ponte en contacto con Disalma.cl. Escríbenos a nuestro WhatsApp +56 9 5633 3906 o visítanos en nuestro local de San Miguel para retiro inmediato de útiles de aseo."
+  jsonLd={contactoJsonLd}
+>
+  {/* Header */}
+  <div class="bg-slate-900 text-white py-14 border-b border-slate-800">
+    <div class="max-w-site space-y-3 text-center sm:text-left">
+      <span class="inline-block bg-amber-400 text-slate-950 font-black text-xs px-3 py-1 rounded-md uppercase">
+        Estamos para ayudarte
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-black text-white">
+        Contacto y Punto de Retiro
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
+        Comunícate directamente con nuestro equipo por WhatsApp para coordinar pedidos, solicitar cotizaciones o retirar en nuestro local de San Miguel.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-site py-16 space-y-16">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      
+      {/* Columna Izquierda: Información de Contacto y WhatsApp Directo */}
+      <div class="lg:col-span-5 space-y-6">
+        
+        {/* Card WhatsApp Destacada */}
+        <div class="bg-emerald-50 rounded-3xl p-6 border-2 border-emerald-200 space-y-4 shadow-sm">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center">
+              <svg class="w-7 h-7 fill-white" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 className="text-base font-extrabold text-emerald-950">
+                Canal de Atención Principal
+              </h3>
+              <p className="text-xs text-emerald-700">Respuesta inmediata en horario laboral</p>
+            </div>
+          </div>
+
+          <p className="text-xs text-emerald-900 leading-relaxed">
+            Para la mayor rapidez en tu compra te recomendamos usar nuestro <strong>canal oficial de WhatsApp</strong>. Puedes enviar tu carrito armado o escribirnos una consulta directa.
+          </p>
+
+          <a
+            href={`https://wa.me/${businessInfo.whatsappNumber}?text=${encodeURIComponent('Hola Liquidadora Alma Janette, me gustaría hacer una consulta:')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 active:scale-98 text-white font-black py-3.5 px-4 rounded-xl text-sm transition-all shadow-md"
+          >
+            <span>Abrir Chat con {businessInfo.phoneDisplay}</span>
+          </a>
+        </div>
+
+        {/* Datos Comerciales */}
+        <div class="bg-white rounded-3xl p-6 border border-slate-200 space-y-4">
+          <h4 class="text-xs font-black uppercase tracking-wider text-slate-400">
+            Datos de la Empresa
+          </h4>
+
+          <div class="space-y-3 text-xs text-slate-700">
+            <div class="flex items-start gap-3">
+              <span class="text-amber-500 font-bold text-base">📍</span>
+              <div>
+                <strong class="text-slate-900 block">Dirección Local:</strong>
+                <span>{businessInfo.address}, {businessInfo.city}</span>
+                <span class="block text-[11px] text-slate-500 mt-0.5">A pasos de Metro Lo Vial / Departamental</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="text-amber-500 font-bold text-base">⏰</span>
+              <div>
+                <strong class="text-slate-900 block">Horario de Atención:</strong>
+                <span>{businessInfo.hoursWeekdays}</span>
+                <span class="block text-[11px] text-slate-500">{businessInfo.hoursSaturday}</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="text-amber-500 font-bold text-base">✉️</span>
+              <div>
+                <strong class="text-slate-900 block">Correo Electrónico:</strong>
+                <a href={`mailto:${businessInfo.email}`} class="text-slate-600 hover:underline">
+                  {businessInfo.email}
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="text-amber-500 font-bold text-base">📄</span>
+              <div>
+                <strong class="text-slate-900 block">Facturación:</strong>
+                <span>Emitimos Boleta y Factura electrónica (RUT {businessInfo.rut})</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Columna Derecha: Formulario de Contacto Visual */}
+      <div class="lg:col-span-7 bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+        <div>
+          <h3 class="text-xl sm:text-2xl font-black text-slate-950">
+            Envíanos un Mensaje
+          </h3>
+          <p class="text-xs text-slate-500 mt-1">
+            Si prefieres dejarnos un mensaje por escrito, completa este formulario y te responderemos a la brevedad.
+          </p>
+        </div>
+
+        <form id="contact-form" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">
+                Nombre Completo *
+              </label>
+              <input
+                type="text"
+                required
+                name="name"
+                placeholder="Tu nombre"
+                class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200/50 outline-none"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">
+                Teléfono / WhatsApp *
+              </label>
+              <input
+                type="tel"
+                required
+                name="phone"
+                placeholder="+56 9 1234 5678"
+                class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200/50 outline-none"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">
+                Correo Electrónico
+              </label>
+              <input
+                type="email"
+                name="email"
+                placeholder="tucorreo@ejemplo.cl"
+                class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200/50 outline-none"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">
+                Tipo de Consulta
+              </label>
+              <select
+                name="subject"
+                class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm bg-white focus:border-amber-500 focus:ring-2 focus:ring-amber-200/50 outline-none cursor-pointer"
+              >
+                <option value="hogar">Pedido para el hogar</option>
+                <option value="empresa">Cotización para Empresa / Pyme</option>
+                <option value="condominio">Cotización para Condominio / Edificio</option>
+                <option value="otro">Otras consultas</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">
+              Mensaje o Detalle de Consulta *
+            </label>
+            <textarea
+              rows="4"
+              required
+              name="message"
+              placeholder="Indícanos los productos que necesitas cotizar o tu consulta..."
+              class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:border-amber-500 focus:ring-2 focus:ring-amber-200/50 outline-none"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-slate-950 hover:bg-slate-900 active:scale-98 text-white font-extrabold py-3.5 px-6 rounded-xl text-sm transition-all shadow-md"
+          >
+            Enviar Consulta por Mensaje
+          </button>
+
+          <div id="form-feedback" class="hidden p-4 rounded-xl bg-emerald-50 text-emerald-800 text-xs font-semibold border border-emerald-200 text-center">
+            ✓ ¡Gracias! Tu mensaje ha sido registrado. Si necesitas respuesta inmediata, te recomendamos pulsar el botón verde de WhatsApp arriba.
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+    {/* Preguntas Frecuentes FAQ */}
+    <div class="pt-8 border-t border-slate-200 space-y-6">
+      <div class="text-center max-w-xl mx-auto space-y-1">
+        <span class="text-xs font-black text-amber-600 uppercase tracking-widest block">
+          Resolvemos tus inquietudes
+        </span>
+        <h3 class="text-2xl font-black text-slate-950">
+          Preguntas Frecuentes
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-1.5">
+          <h4 class="text-sm font-extrabold text-slate-900">¿Cómo funciona el pago al recibir?</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Puedes pagar en efectivo exacto, con tarjeta mediante máquina POS inalámbrica de nuestro repartidor, o realizar una transferencia bancaria al momento de la entrega.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-1.5">
+          <h4 class="text-sm font-extrabold text-slate-900">¿Tienen monto mínimo de compra?</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            No exigimos un mínimo estricto. Puedes comprar desde 1 bidón de 5 Litros para retiro en nuestro local sin costo. Para envíos a domicilio coordinamos según la comuna.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-1.5">
+          <h4 class="text-sm font-extrabold text-slate-900">¿Hacen despachos a regiones?</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Sí, despachamos vía Starken o Pullman Cargo por pagar a cualquier ciudad de Chile. Solo indícanos tu comuna al enviar el pedido por WhatsApp.
+          </p>
+        </div>
+
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 space-y-1.5">
+          <h4 class="text-sm font-extrabold text-slate-900">¿Emiten factura para empresas?</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            ¡Sí, por supuesto! Emitimos factura electrónica a empresas, restaurantes, colegios y administraciones de edificios con RUT chileno.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const feedback = document.getElementById('form-feedback');
+  if (form && feedback) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      feedback.classList.remove('hidden');
+      form.reset();
+    });
+  }
+</script>
