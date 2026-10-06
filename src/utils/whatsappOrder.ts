@@ -9,7 +9,7 @@ export function generateWhatsAppOrderMessage(
   totalSavings: number
 ): string {
   const deliveryLabels: Record<string, string> = {
-    retiro: '🏪 Retiro en Local (San Miguel)',
+    retiro: '🏪 Retiro en Local 7',
     domicilio: '🚚 Envío a Domicilio',
     whatsapp: '💬 Coordinar Despacho por WhatsApp'
   };
@@ -59,7 +59,7 @@ export function generateWhatsAppOrderMessage(
   }
 
   lines.push('Por favor confírmenme la recepción del pedido para coordinar entrega y pago. ¡Muchas gracias!');
-  lines.push('_Pedido generado desde Disalma.cl - Liquidadora Alma Janette_');
+  lines.push('_Pedido generado desde Disalma.cl - Liquidadora ALma Janette_');
 
   return lines.join('\n');
 }

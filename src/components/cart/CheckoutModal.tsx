@@ -64,16 +64,15 @@ export const CheckoutModal: React.FC = () => {
   });
 
   const deliveryOptions: { value: DeliveryMethod; icon: string; label: string; sub: string }[] = [
-    { value: 'domicilio', icon: '🚚', label: 'Envío a Domicilio', sub: 'Todo Santiago' },
-    { value: 'retiro',    icon: '🏪', label: 'Retiro en Local',   sub: 'Gratis · San Miguel' },
-    { value: 'whatsapp',  icon: '💬', label: 'Coordinar x WA',   sub: 'Regiones / Encomienda' },
+    { value: 'domicilio', icon: '🚚', label: 'Despacho a Domicilio', sub: 'Curicó Urbano · Gratis +$20.000' },
+    { value: 'retiro',    icon: '🏪', label: 'Retiro en Local',      sub: 'Gratis · Camino a Tutuquen #1500 L7' },
+    { value: 'whatsapp',  icon: '💬', label: 'Coordinar x WA',      sub: 'Consultar zona y horario' },
   ];
 
   const paymentOptions: { value: PaymentMethod; label: string; sub: string }[] = [
     { value: 'transferencia', label: 'Transferencia', sub: 'Cuenta corriente' },
-    { value: 'efectivo',      label: 'Efectivo',      sub: 'Al recibir' },
-    { value: 'tarjeta',       label: 'Tarjeta POS',   sub: 'Débito / Crédito' },
-    { value: 'link',          label: 'Link de Pago',  sub: 'Webpay Transbank' },
+    { value: 'efectivo',      label: 'Efectivo',      sub: 'Al recibir o retirar' },
+    { value: 'tarjeta',       label: 'Débito',        sub: 'Tarjeta débito POS' },
   ];
 
   return (
@@ -91,7 +90,7 @@ export const CheckoutModal: React.FC = () => {
             <h2 id="checkout-title">
               💬 Completar Pedido por WhatsApp
             </h2>
-            <p>Liquidadora Alma Janette · Sin pasarelas lentas</p>
+            <p>Liquidadora ALma Janette · Sin pasarelas lentas</p>
           </div>
           <button
             className="drawer__close"
@@ -114,7 +113,7 @@ export const CheckoutModal: React.FC = () => {
               <p>
                 <strong>Destino:</strong>{' '}
                 {form.deliveryMethod === 'retiro'
-                  ? 'Retiro en Local San Miguel'
+                  ? 'Retiro en Local 7'
                   : `${form.deliveryAddress}, ${form.commune}`
                 }
               </p>

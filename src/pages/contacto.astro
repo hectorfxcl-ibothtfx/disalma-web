@@ -6,14 +6,14 @@ const contactoJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
   name: 'Contacto y Ubicación | Disalma.cl',
-  description: 'Contáctate con Liquidadora Alma Janette. WhatsApp directo +56 9 5633 3906, dirección de local en San Miguel, Santiago y horarios de atención.',
+  description: 'Contáctate con Liquidadora ALma Janette. WhatsApp directo +56 9 5633 3906, dirección de local en Local 7, Curicó y horarios de atención.',
   url: 'https://disalma.cl/contacto'
 };
 ---
 
 <Layout
-  title="Contacto y Ubicación • Liquidadora Alma Janette | Disalma.cl"
-  description="Ponte en contacto con Disalma.cl. Escríbenos a nuestro WhatsApp +56 9 5633 3906 o visítanos en nuestro local de San Miguel para retiro inmediato de útiles de aseo."
+  title="Contacto y Ubicación • Liquidadora ALma Janette | Disalma.cl"
+  description="Ponte en contacto con Disalma.cl. Escríbenos a nuestro WhatsApp +56 9 5633 3906 o visítanos en nuestro local 7 para retiro inmediato de útiles de aseo."
   jsonLd={contactoJsonLd}
 >
   {/* Header */}
@@ -26,7 +26,7 @@ const contactoJsonLd = {
         Contacto y Punto de Retiro
       </h1>
       <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
-        Comunícate directamente con nuestro equipo por WhatsApp para coordinar pedidos, solicitar cotizaciones o retirar en nuestro local de San Miguel.
+        Comunícate directamente con nuestro equipo por WhatsApp para coordinar pedidos, solicitar cotizaciones o retirar en nuestro local 7.
       </p>
     </div>
   </div>
@@ -59,7 +59,7 @@ const contactoJsonLd = {
           </p>
 
           <a
-            href={`https://wa.me/${businessInfo.whatsappNumber}?text=${encodeURIComponent('Hola Liquidadora Alma Janette, me gustaría hacer una consulta:')}`}
+            href={`https://wa.me/${businessInfo.whatsappNumber}?text=${encodeURIComponent('Hola Liquidadora ALma Janette, me gustaría hacer una consulta:')}`}
             target="_blank"
             rel="noopener noreferrer"
             class="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 active:scale-98 text-white font-black py-3.5 px-4 rounded-xl text-sm transition-all shadow-md"
@@ -80,7 +80,7 @@ const contactoJsonLd = {
               <div>
                 <strong class="text-slate-900 block">Dirección Local:</strong>
                 <span>{businessInfo.address}, {businessInfo.city}</span>
-                <span class="block text-[11px] text-slate-500 mt-0.5">A pasos de Metro Lo Vial / Departamental</span>
+                <span class="block text-[11px] text-slate-500 mt-0.5"></span>
               </div>
             </div>
 
