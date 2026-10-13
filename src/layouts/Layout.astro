@@ -15,24 +15,24 @@ interface Props {
 }
 
 const {
-  title = 'Disalma.cl | Liquidadora de Útiles de Aseo y Limpieza al Por Mayor y Menor',
-  description = 'Liquidadora Alma Janette (Disalma.cl). Ahorra hasta 45% en detergentes 5L, suavizantes, desengrasantes, cloro y artículos de aseo para el hogar y empresas. Pedidos directos por WhatsApp.',
-  image = 'https://disalma.cl/images/og-disalma.webp',
+  title = 'LiquiAlma.cl | Liquidadora de Útiles de Aseo y Limpieza al Por Mayor y Menor',
+  description = 'Liquidadora Alma Janette (LiquiAlma.cl). Ahorra hasta 45% en detergentes 5L, suavizantes, desengrasantes, cloro y artículos de aseo para el hogar y empresas. Pedidos directos por WhatsApp.',
+  image = 'https://liquialma.cl/images/og-liquialma.webp',
   type = 'website',
   jsonLd,
   currentPath = Astro.url.pathname
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://disalma.cl');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://liquialma.cl');
 
 // Base LocalBusiness Schema for SEO
 const defaultBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'WholesaleStore',
   name: businessInfo.legalName,
-  alternateName: 'Disalma',
-  url: 'https://disalma.cl',
-  logo: 'https://disalma.cl/images/logo.png',
+  alternateName: 'LiquiAlma',
+  url: 'https://liquialma.cl',
+  logo: 'https://liquialma.cl/images/logo.png',
   image: image,
   description: description,
   telephone: businessInfo.phoneRaw,
@@ -84,7 +84,7 @@ const structuredData = jsonLd ? jsonLd : defaultBusinessSchema;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
-    <meta property="og:site_name" content="Disalma.cl" />
+    <meta property="og:site_name" content="LiquiAlma.cl" />
     <meta property="og:locale" content="es_CL" />
 
     {/* Twitter */}

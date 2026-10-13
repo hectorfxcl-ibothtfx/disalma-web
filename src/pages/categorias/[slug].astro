@@ -17,15 +17,15 @@ const categoryProducts = getProductsByCategory(category.id);
 const categoryJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: `${category.name} | Liquidadora Disalma.cl`,
+  name: `${category.name} | Liquidadora LiquiAlma.cl`,
   description: category.description,
-  url: `https://disalma.cl/categorias/${category.slug}`,
+  url: `https://liquialma.cl/categorias/${category.slug}`,
   numberOfItems: categoryProducts.length
 };
 ---
 
 <Layout
-  title={`${category.name} en Bidón 5L y Formatos Ahorro | Disalma.cl`}
+  title={`${category.name} en Bidón 5L y Formatos Ahorro | LiquiAlma.cl`}
   description={category.description}
   jsonLd={categoryJsonLd}
 >

@@ -22,16 +22,16 @@ const productJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: product.title,
-  image: `https://disalma.cl${product.image}`,
+  image: `https://liquialma.cl${product.image}`,
   description: product.description,
   sku: product.sku,
   brand: {
     '@type': 'Brand',
-    name: 'Disalma'
+    name: 'LiquiAlma'
   },
   offers: {
     '@type': 'Offer',
-    url: `https://disalma.cl/productos/${product.slug}`,
+    url: `https://liquialma.cl/productos/${product.slug}`,
     priceCurrency: 'CLP',
     price: product.price,
     itemCondition: 'https://schema.org/NewCondition',
@@ -50,7 +50,7 @@ const productJsonLd = {
 ---
 
 <Layout
-  title={`${product.title} (${product.format}) | Disalma.cl`}
+  title={`${product.title} (${product.format}) | LiquiAlma.cl`}
   description={`${product.shortDescription} Precio Liquidadora: ${formatCLP(product.price)} (Ahorro ${formatCLP(savingsAmount)}). Despacho en Curicó Urbano o retiro en local Camino a Tutuquen.`}
   jsonLd={productJsonLd}
 >

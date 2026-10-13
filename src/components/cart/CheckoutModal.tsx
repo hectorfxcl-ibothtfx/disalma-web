@@ -105,7 +105,7 @@ export const CheckoutModal: React.FC = () => {
             <div className="icon">✅</div>
             <h3>¡WhatsApp abierto con tu pedido!</h3>
             <p>
-              Se transfirió el detalle a la conversación de WhatsApp con Disalma.
+              Se transfirió el detalle a la conversación de WhatsApp con LiquiAlma.
               Solo presiona <strong>Enviar</strong> en WhatsApp para confirmar.
             </p>
             <div className="info-box">
@@ -117,7 +117,7 @@ export const CheckoutModal: React.FC = () => {
                   : `${form.deliveryAddress}, ${form.commune}`
                 }
               </p>
-              <p><strong>Contacto Disalma:</strong> +56 9 5633 3906</p>
+              <p><strong>Contacto LiquiAlma:</strong> +56 9 5633 3906</p>
             </div>
             <div className="actions">
               <button
@@ -330,7 +330,7 @@ export const CheckoutModal: React.FC = () => {
               </button>
 
               <p style={{ textAlign: 'center', fontSize: '.75rem', color: 'var(--light)', marginTop: '.625rem' }}>
-                Se abrirá WhatsApp con el mensaje estructurado. El equipo de Disalma confirma en minutos.
+                Se abrirá WhatsApp con el mensaje estructurado. El equipo de LiquiAlma confirma en minutos.
               </p>
 
             </div>

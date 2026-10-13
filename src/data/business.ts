@@ -1,14 +1,14 @@
 import type { BusinessInfo } from '../types';
 
 export const businessInfo: BusinessInfo = {
-  name: 'Disalma',
+  name: 'LiquiAlma',
   legalName: 'Liquidadora ALma Janette',
-  domain: 'disalma.cl',
+  domain: 'liquialma.cl',
   phoneDisplay: '+56 9 5633 3906',
   phoneRaw: '+56956333906',
   whatsappNumber: '56956333906',
   whatsappDisplay: '+56 9 5633 3906',
-  email: 'contacto@disalma.cl',
+  email: 'contacto@liquialma.cl',
   address: 'Camino a Tutuquen #1500 Local 7',
   city: 'Curicó',
   region: 'Región del Maule, Chile',

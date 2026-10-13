@@ -23,7 +23,7 @@ export function generateWhatsAppOrderMessage(
 
   const lines: string[] = [];
 
-  lines.push('🧺 *NUEVO PEDIDO - DISALMA.CL*');
+  lines.push('🧺 *NUEVO PEDIDO - LIQUIALMA.CL*');
   lines.push('----------------------------------------');
   lines.push(`👤 *Cliente:* ${form.customerName.trim()}`);
   lines.push(`📱 *Teléfono:* ${form.phone.trim()}`);
@@ -59,7 +59,7 @@ export function generateWhatsAppOrderMessage(
   }
 
   lines.push('Por favor confírmenme la recepción del pedido para coordinar entrega y pago. ¡Muchas gracias!');
-  lines.push('_Pedido generado desde Disalma.cl - Liquidadora ALma Janette_');
+  lines.push('_Pedido generado desde LiquiAlma.cl - Liquidadora ALma Janette_');
 
   return lines.join('\n');
 }

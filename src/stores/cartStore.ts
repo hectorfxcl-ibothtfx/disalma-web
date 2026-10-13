@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import type { CartItem, Product } from '../types';
 
-const STORAGE_KEY = 'disalma_cart_v1';
-const CART_UPDATE_EVENT = 'disalma:cart-updated';
-const CART_OPEN_EVENT = 'disalma:open-cart';
-const CHECKOUT_OPEN_EVENT = 'disalma:open-checkout';
+const STORAGE_KEY = 'liquialma_cart_v1';
+const CART_UPDATE_EVENT = 'liquialma:cart-updated';
+const CART_OPEN_EVENT = 'liquialma:open-cart';
+const CHECKOUT_OPEN_EVENT = 'liquialma:open-checkout';
 
 export function getStoredCart(): CartItem[] {
   if (typeof window === 'undefined') return [];
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('disalma_cart_v1');
     return raw ? JSON.parse(raw) : [];
   } catch (err) {
     console.error('Error reading cart from localStorage', err);
