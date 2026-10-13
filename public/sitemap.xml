@@ -2,101 +2,308 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Páginas Principales -->
   <url>
-    <loc>https://liquialma.cl/</loc>
+    <loc>https://liquialma.cl</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://liquialma.cl/catalogo</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://liquialma.cl/nosotros</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://liquialma.cl/contacto</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://liquialma.cl/contacto</loc>
+    <loc>https://liquialma.cl/nosotros</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/blog</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Categorías -->
   <url>
     <loc>https://liquialma.cl/categorias/aseo-ropa</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://liquialma.cl/categorias/aseo-cocina</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://liquialma.cl/categorias/aseo-bano</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://liquialma.cl/categorias/aseo-general</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/categorias/cuidado-personal</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/categorias/perfumeria</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
   </url>
 
-  <!-- Productos Destacados -->
+  <!-- Artículos de Blog SEO Local Curicó -->
   <url>
-    <loc>https://liquialma.cl/productos/detergente-liquido-hipoalergenico-5l</loc>
+    <loc>https://liquialma.cl/blog/donde-comprar-productos-aseo-por-mayor-curico</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/blog/liquidaciones-de-perfumes-en-curico-como-ahorrar</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/blog/guia-aseo-personal-economico-curico</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/blog/mejores-productos-de-aseo-hogar-curico</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/blog/liquidadoras-en-curico-que-son-y-como-aprovecharlas</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Productos del Catálogo (34) -->
+  <url>
+    <loc>https://liquialma.cl/productos/detergente-liquido-concentrado-5l-bidon</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://liquialma.cl/productos/detergente-liquido-azul-matic-5l</loc>
+    <loc>https://liquialma.cl/productos/detergente-capsulas-ariel-pods-57-unidades</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://liquialma.cl/productos/suavizante-textil-lavanda-5l</loc>
+    <loc>https://liquialma.cl/productos/detergente-polvo-downy-400g</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://liquialma.cl/productos/quitamanchas-oxi-power-1l</loc>
+    <loc>https://liquialma.cl/productos/detergente-liquido-tide-free-gentle-1-36l</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/pack-cloro-hogar-5l-4-unidades</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/cloro-gel-aromatico-900cc</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://liquialma.cl/productos/lavavajillas-concentrado-limon-5l</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://liquialma.cl/productos/desengrasante-industrial-hornos-campanas-5l</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://liquialma.cl/productos/cloro-gel-multiuso-5l</loc>
+    <loc>https://liquialma.cl/productos/cloro-concentrado-clorinda-500g</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://liquialma.cl/productos/limpiador-antisarro-profesional-5l</loc>
+    <loc>https://liquialma.cl/productos/desinfectante-concentrado-lysol-900ml</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://liquialma.cl/productos/limpiapisos-lavanda-silvestre-5l</loc>
+    <loc>https://liquialma.cl/productos/lavalozas-concentrado-espumoso-2-litros</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://liquialma.cl/productos/amonio-cuaternario-5ta-generacion-5l</loc>
+    <loc>https://liquialma.cl/productos/pack-lavalozas-aguacol-5l-4-unidades</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/lavalozas-dawn-blue-original-458ml</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/lavalozas-magistral-ultra-limon-450ml</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://liquialma.cl/productos/pack-5-panos-microfibra-40x40</loc>
+    <loc>https://liquialma.cl/productos/bolson-papel-higienico-swan-50m-32-rollos</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/bolson-papel-higienico-ovella-48-rollos</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/toalla-papel-interfoliada-doble-hoja-200un</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/esponja-magica-scrub-daddy-original</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/pasta-limpiadora-the-pink-stuff-500g</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/panos-absorbentes-virutex-pack-6</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/limpiador-cif-crema-750g</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/limpiador-antisarro-excell-500cc</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/bolsas-basura-80x110cm-rollo-10un</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/shampoo-pantene-hidratacion-extrema-400ml</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/pack-shampoo-acondicionador-dove-400ml</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/crema-dental-colgate-extra-calcio-180g</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/enjuague-bucal-listerine-cool-mint-1l</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/desodorante-rexona-clinical-spray-mujer-150ml</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/desodorante-lady-speed-stick-barra-pro-45g</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/crema-corporal-nivea-reafirmante-q10-400ml</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/toallas-higienicas-ladysoft-alas-8un</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/perfume-arabe-lattafa-yara-100ml-original</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/perfume-dupe-good-girl-100ml</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/perfume-dupe-one-million-hombre-100ml</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/perfume-qk1-dupe-ck-one-100ml</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://liquialma.cl/productos/bruma-corporal-body-mist-vainilla-100ml</loc>
+    <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

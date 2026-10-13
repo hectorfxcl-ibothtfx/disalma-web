@@ -1,0 +1,86 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { blogPosts } from '../../data/blogPosts';
+
+const blogJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Blog de LiquiAlma.cl | Consejos de Limpieza, Ahorro y Aseo en Curicó',
+  description: 'Guías de ahorro en útiles de aseo, perfumería y desinfección en Curicó, Región del Maule.',
+  url: 'https://liquialma.cl/blog',
+  blogPost: blogPosts.map((post) => ({
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    url: `https://liquialma.cl/blog/${post.slug}`,
+    datePublished: post.publishedAt,
+    author: {
+      '@type': 'Organization',
+      name: 'LiquiAlma Curicó'
+    }
+  }))
+};
+---
+
+<Layout
+  title="Blog y Guías de Ahorro en Curicó | LiquiAlma.cl"
+  description="Artículos, comparativas y consejos para comprar útiles de aseo, perfumería y cuidado personal al por mayor en Curicó, Región del Maule."
+  jsonLd={blogJsonLd}
+>
+  <div class="page-hero">
+    <div class="wrap">
+      <span class="badge badge-yellow" style="margin-bottom:.75rem;">
+        📚 Consejos, Ahorro y Guías Locales
+      </span>
+      <h1 class="txt-hero" style="color:white;margin-bottom:.5rem;">
+        Blog de Aseo y Ahorro en Curicó
+      </h1>
+      <p class="txt-lead" style="color:rgba(255,255,255,.75);max-width:620px;">
+        Aprende a elegir los mejores detergentes, maximizar el rendimiento de bidones de 5L y ahorrar en perfumería en Curicó.
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-block:3rem;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:2rem;">
+      {blogPosts.map((post) => (
+        <article style="background:white;border:1px solid #E2E8F0;border-radius:1rem;overflow:hidden;box-shadow:0 4px 6px -1px rgba(0,0,0,0.05);display:flex;flex-direction:column;">
+          <div style="height:180px;background:#0F172A;position:relative;overflow:hidden;">
+            <img
+              src={post.image}
+              alt={post.title}
+              style="width:100%;height:100%;object-fit:cover;opacity:0.85;"
+            />
+            <span style="position:absolute;top:12px;left:12px;background:#F59E0B;color:#000;padding:.25rem .6rem;border-radius:999px;font-size:.7rem;font-weight:800;">
+              {post.category}
+            </span>
+          </div>
+
+          <div style="padding:1.5rem;flex:1;display:flex;flex-direction:column;">
+            <div style="display:flex;gap:.75rem;font-size:.75rem;color:#64748B;margin-bottom:.5rem;font-weight:600;">
+              <span>📅 {post.publishedAt}</span>
+              <span>⏱️ {post.readTime}</span>
+            </div>
+
+            <h2 style="font-size:1.15rem;font-weight:800;color:#0F172A;line-height:1.35;margin:0 0 .75rem;">
+              <a href={`/blog/${post.slug}`} style="text-decoration:none;color:inherit;">
+                {post.title}
+              </a>
+            </h2>
+
+            <p style="font-size:.875rem;color:#475569;line-height:1.5;margin:0 0 1.25rem;flex:1;">
+              {post.description}
+            </p>
+
+            <a
+              href={`/blog/${post.slug}`}
+              style="font-weight:800;color:#DC2626;font-size:.875rem;text-decoration:none;display:inline-flex;align-items:center;gap:.35rem;"
+            >
+              Leer artículo completo →
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</Layout>

@@ -12,15 +12,17 @@ interface Props {
   type?: 'website' | 'article' | 'product';
   jsonLd?: Record<string, any>;
   currentPath?: string;
+  noIndex?: boolean;
 }
 
 const {
-  title = 'LiquiAlma.cl | Liquidadora de Útiles de Aseo y Limpieza al Por Mayor y Menor',
-  description = 'Liquidadora Alma Janette (LiquiAlma.cl). Ahorra hasta 45% en detergentes 5L, suavizantes, desengrasantes, cloro y artículos de aseo para el hogar y empresas. Pedidos directos por WhatsApp.',
+  title = 'LiquiAlma.cl | Liquidadora de Útiles de Aseo y Limpieza al Por Mayor y Menor en Curicó',
+  description = 'Liquidadora Alma Janette (LiquiAlma.cl) en Curicó. Ahorra hasta 45% en detergentes 5L, perfumería, aseo personal, suavizantes y desengrasantes. Despacho a domicilio en Curicó y retiro en Camino a Tutuquén #1500 Local 7.',
   image = 'https://liquialma.cl/images/og-liquialma.webp',
   type = 'website',
   jsonLd,
-  currentPath = Astro.url.pathname
+  currentPath = Astro.url.pathname,
+  noIndex = false
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://liquialma.cl');
@@ -28,34 +30,53 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://liquialm
 // Base LocalBusiness Schema for SEO
 const defaultBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'WholesaleStore',
-  name: businessInfo.legalName,
-  alternateName: 'LiquiAlma',
+  '@type': ['WholesaleStore', 'Store'],
+  name: `${businessInfo.name} - ${businessInfo.legalName}`,
+  alternateName: ['LiquiAlma', 'Liquidadora Alma Janette Curicó', 'LiquiAlma Curicó'],
   url: 'https://liquialma.cl',
   logo: 'https://liquialma.cl/images/logo.png',
   image: image,
   description: description,
   telephone: businessInfo.phoneRaw,
+  email: businessInfo.email,
   priceRange: '$$',
+  paymentAccepted: 'Cash, Credit Card, Debit Card, Transfer',
+  currenciesAccepted: 'CLP',
   address: {
     '@type': 'PostalAddress',
     streetAddress: businessInfo.address,
     addressLocality: businessInfo.city,
     addressRegion: businessInfo.region,
+    postalCode: '3340000',
     addressCountry: 'CL'
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -34.9828,
+    longitude: -71.2394
+  },
+  areaServed: [
+    {
+      '@type': 'City',
+      name: 'Curicó'
+    },
+    {
+      '@type': 'AdministrativeArea',
+      name: 'Región del Maule'
+    }
+  ],
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '09:00',
-      closes: '19:00'
+      opens: '13:00',
+      closes: '21:00'
     },
     {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Saturday'],
-      opens: '09:30',
-      closes: '14:30'
+      opens: '11:00',
+      closes: '19:00'
     }
   ]
 };
@@ -75,8 +96,12 @@ const structuredData = jsonLd ? jsonLd : defaultBusinessSchema;
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"} />
     <link rel="canonical" href={canonicalURL} />
+    <meta name="geo.region" content="CL-ML" />
+    <meta name="geo.placename" content="Curicó" />
+    <meta name="geo.position" content="-34.9828;-71.2394" />
+    <meta name="ICBM" content="-34.9828, -71.2394" />
 
     {/* Open Graph / Facebook */}
     <meta property="og:type" content={type} />
