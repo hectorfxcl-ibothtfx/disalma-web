@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#F1F5F9"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </radialGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <filter id="productShadow" x="-15%" y="-15%" width="130%" height="135%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#0F172A" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Background Studio Box -->
+  <rect width="500" height="500" rx="32" fill="url(#bgGlow)"/>
+  
+  <!-- Subtle Grid Pattern in background -->
+  <circle cx="250" cy="230" r="170" fill="none" stroke="#D97706" stroke-width="1.5" stroke-opacity="0.12" stroke-dasharray="6 6"/>
+  <circle cx="250" cy="230" r="140" fill="none" stroke="#D97706" stroke-width="1.5" stroke-opacity="0.18"/>
+
+  <!-- Top Category Chip -->
+  <g transform="translate(30, 30)">
+    <rect width="130" height="26" rx="13" fill="#0F172A" fill-opacity="0.08"/>
+    <text x="65" y="17" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#475569" text-anchor="middle" letter-spacing="1">PAPELERÍA & ASEO</text>
+  </g>
+
+  <!-- Format Chip Top Right -->
+  <g transform="translate(330, 30)">
+    <rect width="140" height="26" rx="13" fill="url(#goldGrad)"/>
+    <text x="70" y="17" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="900" fill="#000000" text-anchor="middle">Paquete 200 Hojas</text>
+  </g>
+
+  <!-- Central Product Container Mockup 3D -->
+  <g filter="url(#productShadow)">
+    
+    <!-- Base Pedestal / Shadow -->
+    <ellipse cx="250" cy="390" rx="110" ry="18" fill="#0F172A" fill-opacity="0.12"/>
+
+    <!-- Bottle Body / Box Packaging -->
+    <rect x="160" y="130" width="180" height="240" rx="28" fill="url(#primaryGrad)"/>
+    
+    <!-- Highlights -->
+    <path d="M175 145 Q 170 250 175 355" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-opacity="0.35"/>
+    <rect x="220" y="90" width="60" height="46" rx="8" fill="#0F172A"/>
+    <rect x="210" y="80" width="80" height="20" rx="6" fill="#DC2626"/>
+
+    <!-- Premium Label Frame -->
+    <rect x="180" y="170" width="140" height="175" rx="14" fill="#FFFFFF"/>
+    
+    <!-- Label Header Brand -->
+    <rect x="180" y="170" width="140" height="34" rx="14" fill="#0F172A"/>
+    <text x="250" y="191" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="1.5">LIQUIALMA</text>
+    
+    <!-- Center Icon Symbol -->
+    <text x="250" y="245" font-size="34" text-anchor="middle">🧻</text>
+
+    <!-- Product Title in Label -->
+    <foreignObject x="185" y="260" width="130" height="52">
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: system-ui, -apple-system, sans-serif; font-size: 10px; font-weight: 800; color: #0F172A; text-align: center; line-height: 1.25; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
+        Toalla de Papel Interfoliada Doble Hoja (200 Unidades)
+      </div>
+    </foreignObject>
+
+    <!-- Label Bottom Ribbon -->
+    <rect x="195" y="322" width="110" height="16" rx="8" fill="#FEF3C7"/>
+    <text x="250" y="333" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="8" font-weight="900" fill="#B45309" text-anchor="middle" letter-spacing="0.5">ORIGINAL · AHORRO</text>
+  </g>
+
+  <!-- Big Title below for immediate recognition -->
+  <foreignObject x="30" y="420" width="440" height="60">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 900; color: #0F172A; text-align: center; line-height: 1.2;">
+      Toalla de Papel Interfoliada Doble Hoja (200 Unidades)
+    </div>
+  </foreignObject>
+
+</svg>

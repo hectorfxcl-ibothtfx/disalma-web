@@ -300,7 +300,7 @@ export const AdminDashboard: React.FC = () => {
               </label>
               <input
                 type="password"
-                placeholder="Ingresa clave (ej. liqui2026)"
+                placeholder="Ingresa tu contraseña"
                 value={pinInput}
                 onChange={e => setPinInput(e.target.value)}
                 autoFocus
@@ -316,7 +316,7 @@ export const AdminDashboard: React.FC = () => {
               />
               {pinError && (
                 <span style={{ color: '#EF4444', fontSize: '.8rem', marginTop: '.35rem', display: 'block' }}>
-                  ⚠️ Clave incorrecta. Prueba con <strong>liqui2026</strong>
+                  ⚠️ Contraseña incorrecta. Inténtalo de nuevo.
                 </span>
               )}
             </div>
