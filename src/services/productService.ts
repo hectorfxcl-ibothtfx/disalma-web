@@ -1,5 +1,5 @@
 import type { Product } from '../types';
-import { supabase, rowToProduct, type SupabaseProductRow } from './supabase';
+import { supabase, rowToProduct, type SupabaseProductRow } from '../lib/supabase';
 import { products as fallbackProducts } from '../data/products';
 
 // Obtiene todos los productos: primero intenta Supabase, si falla o no hay conexión usa los locales
