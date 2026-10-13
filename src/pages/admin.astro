@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { AdminDashboard } from '../components/admin/AdminDashboard';
+---
+
+<Layout
+  title="Panel de Administración | LiquiAlma.cl"
+  description="Gestión rápida de productos, fotos y precios para Liquidadora Alma Janette."
+  noIndex={true}
+>
+  <div style="background:#F8FAFC; min-height:85vh; padding-top:1.5rem;">
+    <AdminDashboard client:only="react" />
+  </div>
+</Layout>

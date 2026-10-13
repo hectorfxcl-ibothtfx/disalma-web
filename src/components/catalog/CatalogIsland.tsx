@@ -1,7 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import type { Product, Category } from '../../types';
 import { formatCLP, calculateDiscount } from '../../utils/formatters';
 import { AddToCartButton } from '../product/AddToCartButton';
+import { getProducts } from '../../services/productService';
 
 interface Props {
   initialProducts: Product[];
@@ -14,12 +15,22 @@ export const CatalogIsland: React.FC<Props> = ({
   categories,
   initialCategorySlug
 }) => {
+  const [productsList, setProductsList] = useState<Product[]>(initialProducts);
   const [selectedCategory, setSelectedCategory] = useState<string>(initialCategorySlug || 'todos');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<'featured' | 'price-asc' | 'price-desc' | 'discount'>('featured');
 
+  useEffect(() => {
+    // Sincronizar con los datos en tiempo real de Supabase si existen cambios
+    getProducts().then(fresh => {
+      if (fresh && fresh.length > 0) {
+        setProductsList(fresh);
+      }
+    }).catch(() => {});
+  }, []);
+
   const filteredProducts = useMemo(() => {
-    return initialProducts.filter((product) => {
+    return productsList.filter((product) => {
       if (selectedCategory !== 'todos' && product.categoryId !== selectedCategory) return false;
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase().trim();
@@ -42,7 +53,7 @@ export const CatalogIsland: React.FC<Props> = ({
       if (!a.featured && b.featured) return 1;
       return 0;
     });
-  }, [initialProducts, selectedCategory, searchQuery, sortBy]);
+  }, [productsList, selectedCategory, searchQuery, sortBy]);
 
   const clearAllFilters = () => {
     setSelectedCategory('todos');
