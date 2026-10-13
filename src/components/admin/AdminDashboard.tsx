@@ -5,7 +5,8 @@ import {
   upsertProduct, 
   deleteProduct, 
   toggleProductStock, 
-  uploadProductImage 
+  uploadProductImage,
+  setFeaturedProduct 
 } from '../../services/productService';
 import { categories as defaultCategories } from '../../data/categories';
 import { formatCLP } from '../../utils/formatters';
@@ -226,6 +227,24 @@ export const AdminDashboard: React.FC = () => {
       // Revertir
       setProducts(prev => prev.map(p => p.id === product.id ? { ...p, inStock: !newStock } : p));
       alert('No se pudo cambiar el stock');
+    }
+  };
+
+  // Marcar como producto estrella de portada
+  const handleSetFeatured = async (product: Product) => {
+    // Optimista en UI
+    setProducts(prev => prev.map(p => ({
+      ...p,
+      featured: p.id === product.id
+    })));
+
+    try {
+      await setFeaturedProduct(product.id);
+      showToast(`⭐ "${product.title}" ahora es la oferta principal de portada`);
+    } catch (err: any) {
+      console.error(err);
+      alert('Error al asignar producto de portada: ' + err.message);
+      loadProductsList();
     }
   };
 
@@ -637,6 +656,31 @@ export const AdminDashboard: React.FC = () => {
                     </span>
                   )}
                 </div>
+
+                {/* Botón Destacar en Portada (Estrella) */}
+                <button
+                  onClick={() => handleSetFeatured(prod)}
+                  title={prod.featured ? 'Producto estrella actual de la portada' : 'Poner este producto como oferta principal en la portada'}
+                  style={{
+                    width: '100%',
+                    padding: '.5rem',
+                    marginBottom: '.5rem',
+                    borderRadius: '.5rem',
+                    border: prod.featured ? '2px solid #F59E0B' : '1px dashed #CBD5E1',
+                    background: prod.featured ? '#FEF3C7' : '#F8FAFC',
+                    color: prod.featured ? '#92400E' : '#475569',
+                    fontSize: '.8rem',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '.35rem',
+                    transition: 'all .2s'
+                  }}
+                >
+                  {prod.featured ? '⭐ Oferta Principal de Portada' : '☆ Poner en Portada del Sitio'}
+                </button>
 
                 {/* Acciones Rápidas (Estilo Facebook) */}
                 <div style={{

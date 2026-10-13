@@ -105,6 +105,23 @@ export async function upsertProduct(product: Partial<Product>): Promise<Product>
   return rowToProduct(data as SupabaseProductRow);
 }
 
+// Marca un producto como Destacado Principal de la Portada
+export async function setFeaturedProduct(id: string): Promise<void> {
+  // 1. Quitar featured de los demás
+  await supabase
+    .from('products')
+    .update({ featured: false })
+    .neq('id', id);
+
+  // 2. Asignar featured al seleccionado
+  const { error } = await supabase
+    .from('products')
+    .update({ featured: true })
+    .eq('id', id);
+
+  if (error) throw new Error(error.message);
+}
+
 // Actualiza stock de forma instantánea
 export async function toggleProductStock(id: string, inStock: boolean): Promise<void> {
   const { error } = await supabase
